@@ -13,8 +13,8 @@ $data = json_decode($fichier);
 					<th>Age</th>
 					<th>Gender</th>
 				</tr>		
-				<?php $index=0;foreach ($data as $person){
-				$index++;  
+				<?php $index=0 ; foreach ($data as $person){
+				    $index++;  
 				
 				?>
 				<tr>
