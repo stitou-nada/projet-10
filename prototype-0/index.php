@@ -11,6 +11,7 @@ $data = json_decode($fichier);
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Age</th>
+					<th>Gender</th>
 				</tr>		
 				<?php $index=0;foreach ($data as $person){
 				$index++;  
@@ -21,7 +22,7 @@ $data = json_decode($fichier);
 					<td><?php echo $person[0];?></td>
 					<td><?php echo $person[1]; ?></td>
 					<td><?php echo $person[2]; ?></td>
-					
+					<td><?php echo $person[3]; ?></td>
 					
 					
 				</tr>
