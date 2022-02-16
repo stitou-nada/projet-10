@@ -1,49 +1,62 @@
 <?php
-if(isset($_GET)){
-$fichier = file_get_contents("personnes.json");
-$data = json_decode($fichier);
-foreach ($data as $value) {
-    
-     $value[0]==$_GET["id"];
-         
-         break;
-     
-}
-}
 
-if(!empty($_POST)){
-    $id = uniqid(false);
-    $Prenom = $_POST['prenom'];
-    $Nom = $_POST['nom'];
-    $Age = $_POST['age'];
-    $person = array($id,$Prenom, $Nom,$Age);
-    $fichier= file_get_contents("personnes.json");
-    $data = json_decode($fichier);
+$ajouterFicher = file_get_contents("personnes.json");
+$data = json_decode($ajouterFicher);
 
-    for ($i=0; $i < count($data); $i++) { 
-        if ($data[$i][0]==$_GET["id"]) {
-            $data[$i]=$person;
-        }
-    }
-    file_put_contents('personnes.json',json_encode($data));
-    header("location:index.php");
-}
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
-<html>
-    <body>
+    <div>
+        <a href="insert.php">ajoute</a>    
+    </div>
+    <table>
+    <tr>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+<?php
+foreach($data as $value){
 
-<form action="" method="POST">
+?>
+<tr>
+    <td><?php echo $value[1] ?></td>
+    <td><?php echo $value[2]?></td>
+    <td><?php echo $value[3]?></td>
+<td>
 
-<input type="text" value=<?php echo $value[1] ?> name="prenom">
-<input type="text" value=<?php echo $value[2] ?> name="nom" >
-<input type="text" value=<?php echo $value[3] ?> name="age" >
-
-<button type="submit">modifier</button>
-</form>
+<a href="edit.php?id=<?php echo $value[0] ?>">modifier</a>
+<a href="delete.php?id=<?php echo $value[0] ?>">supprime</a>
+</td>
+</tr>
 
 
 
-    </body>
+<?php }?>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
 </html>
