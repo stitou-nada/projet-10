@@ -4,7 +4,7 @@
         $LastName = $_POST['LastName'];
         $FirstName    = $_POST['FirstName'];
         $Age    = $_POST['Age'];
-		$gender = $_POST['gender'];
+		
       
 		$person = array($FirstName, $LastName , $Age , $gender); 
       
@@ -35,15 +35,6 @@
 				<label >Age</label>
 				<input type="text"  name="Age" >
 			</div>
-			<div class="form-group">
-					<label for="inputGender">Gender</label>
-					<select class="form-control" required="required" id="inputGender" name="gender" >
-						<option>Please Select</option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select>
-	        </div>
-			
 			<div class="form-actions">
 					<button type="submit">ajoute</button>
 					<a href="index.php">Back</a>
