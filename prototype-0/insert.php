@@ -29,9 +29,9 @@ if(!empty($_POST)){
 	
 <form action="" method='post'>
 	
-<input type="text" name="prenom">
-<input type="text" name="nom">
-<input type="text" name="age">
+Prenom : <input type="text" name="prenom">
+Nom : <input type="text" name="nom">
+Age : <input type="text" name="age">
 
 <button type='submit'>ajoute</button>
 </form>

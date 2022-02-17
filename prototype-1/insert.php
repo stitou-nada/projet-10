@@ -1,7 +1,7 @@
 <?php
 
 if(!empty($_POST)){
-	$id =uniqid(false);
+	$id =uniqid();
 	$Prenom = $_POST['prenom'];
 	$Nom = $_POST['nom'];
 	$Age = $_POST['age'];
