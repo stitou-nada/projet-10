@@ -8,8 +8,6 @@ if(isset($_GET['id'])){
         for($i = 0; $i < count($data); ++$i){
             if($data[$i][0]== $id){
                 unset($data[$i]);
-                
-                $data = array_values($data);
                 file_put_contents("personnes.json",json_encode($data));
                 break;
             }

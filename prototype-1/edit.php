@@ -4,9 +4,11 @@ $fichier = file_get_contents("personnes.json");
 $data = json_decode($fichier);
 foreach ($data as $value) {
     
-     $value[0]==$_GET["id"];
+    if( $value[0]==$_GET["id"]){
+        break;
+    }
          
-         break;
+      
      
 }
 }
