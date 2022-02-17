@@ -25,7 +25,7 @@ $data = json_decode($ajouterFicher);
                 <th>Age</th>
             </tr>
  <?php
-  foreach($data as $value)
+  foreach($data as $value){
 
  ?>
  <tr>
@@ -37,7 +37,7 @@ $data = json_decode($ajouterFicher);
  </td>
  </tr>
 
-
+<?php } ?>
  </table>
 </body>
 </html>
