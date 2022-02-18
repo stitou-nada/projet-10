@@ -6,7 +6,7 @@
             $id = $_GET['id'];
             $sqlDelete = "DELETE FROM persone WHERE id= '$id'";
 
-            mysqli_query($connect, $sqlDelete);
+            mysqli_query($connectData, $sqlDelete);
             header('Location: index.php');
             
         

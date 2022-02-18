@@ -10,7 +10,7 @@
         $sqlInsert= "INSERT INTO persone(Prenom,Nom, Age) 
                                 VALUES('$Prenom', '$Nom', '$Age')";
         
-        mysqli_query($connect, $sqlInsert);
+        mysqli_query($connectData, $sqlInsert);
      
         header("Location: index.php");
 

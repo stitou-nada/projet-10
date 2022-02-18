@@ -2,7 +2,7 @@
     include 'configuration.php';
 
     $sqlGetData = 'SELECT id, Prenom, Nom, Age  FROM persone';
-    $result = mysqli_query($connect ,$sqlGetData);
+    $result = mysqli_query($connectData ,$sqlGetData);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
@@ -27,9 +27,9 @@
             ?>
 
             <tr>
-                <td><?= $value['Prenom']?></td>
-                <td><?= $value['Nom']?></td>
-                <td><?= $value['Age']?></td>
+                <td><?php echo $value['Prenom']?></td>
+                <td><?php echo $value['Nom']?></td>
+                <td><?php echo $value['Age']?></td>
           
                 <td>
                     <a href="edit.php?id=<?php echo $value['id'] ?>">Edit</a>
