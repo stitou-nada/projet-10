@@ -2,15 +2,15 @@
 
     include 'config.php';
     if(!empty($_POST)){
-        $firstName = $_POST['fname'];
-        $lastName = $_POST['lname'];
+        $firstName = $_POST['Prenome'];
+        $lastName = $_POST['Nom'];
        
-        $gender = $_POST['gender'];
-        $person = array($firstName, $lastName, $age, $gender);
+       $age = $_POST['Age'];
+        $person = array($firstName, $lastName, $age);
 
         // sql insert query
-        $sqlInsertQuery = "INSERT INTO employees(first_name, last_name, gender) 
-                                VALUES('$firstName', '$lastName',  '$gender')";
+        $sqlInsertQuery = "INSERT INTO persone(Prenom, Nom , Age) 
+                                VALUES('$firstName', '$lastName',  '$age')";
         
         mysqli_query($conn, $sqlInsertQuery);
      
@@ -50,15 +50,6 @@
 				<input type="number" required="required" class="form-control" id="inputAge" name="age" placeholder="Age">
 				<span></span>
 			</div>
-				<div class="form-group">
-					<label for="inputGender">Gender</label>
-					<select class="form-control" required="required" id="inputGender" name="gender" >
-						<option>Please Select</option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select>
-					<span></span>
-        		</div>
     
 			<div class="form-actions">
 					<button type="submit">Create</button>
