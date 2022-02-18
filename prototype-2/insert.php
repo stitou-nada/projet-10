@@ -1,18 +1,16 @@
 <?php
 
-    include 'config.php';
+    include 'configuration.php';
     if(!empty($_POST)){
-        $firstName = $_POST['Prenome'];
-        $lastName = $_POST['Nom'];
-       
-       $age = $_POST['Age'];
-        $person = array($firstName, $lastName, $age);
+        $Prenom = $_POST['Prenom'];
+        $Nom = $_POST['Nom'];
+        $Age = $_POST['Age'];
 
         // sql insert query
-        $sqlInsertQuery = "INSERT INTO persone(Prenom, Nom , Age) 
-                                VALUES('$firstName', '$lastName',  '$age')";
+        $sqlInsert= "INSERT INTO persone(Prenom,Nom, Age) 
+                                VALUES('$Prenom', '$Nom', '$Age')";
         
-        mysqli_query($conn, $sqlInsertQuery);
+        mysqli_query($connect, $sqlInsert);
      
         header("Location: index.php");
 
@@ -30,33 +28,16 @@
 </head>
 <body>
 <div>
-        <div>
-		<div><h3>Create a User</h3>
-        <form method="POST" action="">
-			<div>
-				<label for="inputFName">First Name</label>
-				<input type="text" required="required" id="inputFName" name="fname" placeholder="First Name">
-				<span></span>
-			</div>
-			
-			<div>
-				<label for="inputLName">Last Name</label>
-				<input type="text" required="required" id="inputLName" name="lname" placeholder="Last Name">
-        		<span></span>
-			</div>
-			
-			<div>
-				<label for="inputAge">Age</label>
-				<input type="number" required="required" class="form-control" id="inputAge" name="age" placeholder="Age">
-				<span></span>
-			</div>
-    
-			<div class="form-actions">
-					<button type="submit">Create</button>
-					<a href="index.php">Back</a>
-			</div>
-		</form>
-        </div></div>        
-</div>
+        
+		<h3>Create a User</h3>
+		<form action="" method='post'>
+	
+	<input type="text" name="Prenom">
+	<input type="text" name="Nom">
+	<input type="text" name="Age">
+	
+	<button type='submit'>ajoute</button>
+	</form>
+	
 </body>
 </html>
