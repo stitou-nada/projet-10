@@ -27,7 +27,7 @@ include 'configuration.php';
         $sqlUpdateQuery ="UPDATE persone SET 
         Prenom='$prenom',Nom='$nom',Age='$age' WHERE id=$id ";
 
-        $result = mysqli_query($connectData, $sqlUpdateQuery);
+        mysqli_query($connectData, $sqlUpdateQuery);
         header('location: index.php');
         
     };
