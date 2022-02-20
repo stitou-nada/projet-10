@@ -1,62 +1,35 @@
 <?php
 
-    include 'config.php';
-	include 'employee.php';
-	include 'employeeManager.php';
+    include 'configuration.php';
+	include 'employe.php';
+	include 'employeManager.php';
 
-    if(!empty($_POST)){
-		$employee = new Employee();	
-		$employeeManager = new EmployeeManager();
+   if(!empty($_POST)){
+	   $employe = new Employe();
+	   $employeManager=new EmployeManager();
 
-        $employee->setFirstName($_POST['fname']);
-        $employee->setLastName($_POST['lname']);
-        $employee->setAge($_POST['age']);
+	   $employe->setFirstName($_POST['prenom']);
+	   $employe->setLastName($_POST['nom']);
+	   $employe->setAge($_POST['age']);
 
-		$employeeManager->insertEmployee($conn, $employee);
-     
-        header("Location: index.php");
+	   $employeManager->insertEmploye($connectData,$employe);
+	   header("Location: index.php");
+   }
 
-    }
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
-<div>
-        <div>
-		<div><h3>Create a User</h3>
-        <form method="POST" action="">
-			<div>
-				<label for="inputFName">First Name</label>
-				<input type="text" required="required" id="inputFName" name="fname" placeholder="First Name">
-				<span></span>
-			</div>
-			
-			<div>
-				<label for="inputLName">Last Name</label>
-				<input type="text" required="required" id="inputLName" name="lname" placeholder="Last Name">
-        		<span></span>
-			</div>
-			
-			<div>
-				<label for="inputAge">Age</label>
-				<input type="number" required="required" class="form-control" id="inputAge" name="age" placeholder="Age">
-				<span></span>
-			</div>
-    
-			<div class="form-actions">
-					<button type="submit">Create</button>
-					<a href="index.php">Back</a>
-			</div>
-		</form>
-        </div></div>        
-</div>
+
+
+<form action="" method="POST">
+Prenom : 	<input type="text" name="prenom" >
+Nom: 		<input type="text" name="nom" >
+Age : 		<input type="text" name="age" >
+   
+<button type="submit">ajoute</button>
+
+</form>
+
+
 </body>
-</html>

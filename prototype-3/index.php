@@ -1,47 +1,41 @@
 <?php
-    include 'config.php';
-    include 'employeeManager.php';
 
-    $employeeManager = new EmployeeManager();
-    $data = $employeeManager->getAllEmployees($conn);
+include 'configuration.php';
+include 'employeManager.php';
+$employeManager = new EmployeManager();
+$data = $employeManager->getEmployes($connectData);
 
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
-    <div>
-        <a href="insert.php">Insert Data</a>
-        <table>
+    
+<a href="insert.php"> ajoute </a>
+
+
+<table>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Prenom</th>
+                <th>Nom</th>
                 <th>Age</th>
                 <th>Action</th>
             </tr>
 
             <?php
-                    foreach($data as $person){
+                    foreach($data as $value){
             ?>
 
             <tr>
-                <td><?= $person['Prenom']?></td>
-                <td><?= $person['Nom']?></td>
-                <td><?= $person['Age']?></td>
+                <td><?= $value['Prenom']?></td>
+                <td><?= $value['Nom']?></td>
+                <td><?= $value['Age']?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $person['id'] ?>">Edit</a>
-                    <a href="delete.php?id=<?php echo $person['id'] ?>">delete</a>
+                    <a href="edit.php?id=<?php echo $value['id'] ?>">Edit</a>
+                    <a href="delete.php?id=<?php echo $value['id'] ?>">delete</a>
                 </td>
             </tr>
             <?php }?>
         </table>
-    </div>
+
+
 </body>
-</html>
