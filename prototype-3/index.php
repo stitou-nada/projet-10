@@ -13,7 +13,7 @@ $data = $employeManager->getEmployes($connectData);
 <a href="insert.php"> ajoute </a>
 
 
-<table>
+        <table>
             <tr>
                 <th>Prenom</th>
                 <th>Nom</th>
