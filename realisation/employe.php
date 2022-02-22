@@ -1,16 +1,16 @@
 <?php
     class Employe {
-        // private $id;
+        private $id;
         private $firstName;
         private $lastName;
         private $age;
 
-        // public function getId(){
-        //     return $this->id;
-        // }
-        // public function setId($value){
-        //     $this->id = $value;
-        // }
+        public function getId(){
+            return $this->id;
+        }
+        public function setId($value){
+            $this->id = $value;
+        }
 
         public function getFirstName(){
             return $this->firstName;
