@@ -22,7 +22,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Age</th>
+                <th>Date de naissance</th>
                 <th></th>
             </tr>
             <?php
@@ -34,10 +34,9 @@
                 <td><?= $value->getPrenom() ?></td>
                 <td><?= $value->getDate_de_naissance() ?></td>
                 <td>
-                    <a href="editer.php?id=<?php echo $value['id'] ?>">modifier</a>
-                    <a href="suprimmer.php?id=<?php echo $value['id'] ?>">suprimer</a>
+                    <a href="editer.php?id=<?php echo $value->getId() ?>">Éditer</a>
+                    <a href="suprimmer.php?id=<?php echo $value->getId() ?>">Supprime</a>
                 </td>
-               
             </tr>
             <?php }?>
         </table>

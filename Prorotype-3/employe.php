@@ -4,18 +4,9 @@ class Employe{
     private $Id;
     private $Nom;
     private $Prenom;
-    private $Age;
+    private $Date_de_naissance;
 
-    // function __construct($nom,$prenom,$dateNaissance) {
-    //     $this->Nom = $nom;
-    //     $this->Prenom = $prenom;
-    //     $this->DateNaissance = $dateNaissance;
-    // }
-
-    // function __construct() {
-       
-    // }
-
+    
     public function getId() {
         return $this->Id;
     }
@@ -37,14 +28,13 @@ class Employe{
         $this->Prenom = $prenom;
     }
 
-    public function getAge() {
-        return $this->Age;
+    public function getDate_de_naissance() {
+        return $this->Date_de_naissance;
     }
-    public function setAge($Age) {
-        $this->Age = $Age;
+    public function setDate_de_naissance($Date_de_naissance) {
+        $this->Date_de_naissance = $Date_de_naissance;
     }
 
 }
-
      
 ?>

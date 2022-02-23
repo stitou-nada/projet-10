@@ -10,7 +10,7 @@
 
 	   $employe->setFirstName($_POST['prenom']);
 	   $employe->setLastName($_POST['nom']);
-	   $employe->setAge($_POST['age']);
+	   $employe->setDate_de_naissance($_POST['Date_de_naissance']);
 
 	   $employeManager->insertEmploye($connectData,$employe);
 	   header("Location: index.php");
@@ -49,8 +49,8 @@
 						<span class="border"></span>
 					</label>
 					<label class="form-group" >
-					<input type="text" class="form-control" name="age" required>
-						<span for="">Age</span>
+					<input type="text" class="form-control" name="Date_de_naissance" required>
+						<span for="">Date de naissance</span>
 						<span class="border"></span>
 					</label>
 					<button>ajoute

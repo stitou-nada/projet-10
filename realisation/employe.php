@@ -3,7 +3,7 @@
         private $id;
         private $firstName;
         private $lastName;
-        private $age;
+        private $Date_de_naissance;
 
         public function getId(){
             return $this->id;
@@ -30,12 +30,12 @@
 
   
 
-        public function getAge(){
-            return $this->age;
+        public function getDate_de_naissance(){
+            return $this->Date_de_naissance;
         }
 
-        public function setAge($value){
-            $this->age = $value;
+        public function setDate_de_naissance($value){
+            $this->Date_de_naissance = $value;
         }
     }
 ?>

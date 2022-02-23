@@ -42,7 +42,7 @@ $data = $employeManager->getEmployes($connectData);
               <th scope="col">id</th>
               <th scope="col">Prenom</th>
               <th scope="col">Nom</th>
-              <th scope="col">Age</th>
+              <th scope="col">Date de naissance</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -56,7 +56,7 @@ $data = $employeManager->getEmployes($connectData);
                 <td><?= $value['id']?></td>
                 <td><?= $value['Prenom']?></td>
                 <td><?= $value['Nom']?></td>
-                <td><?= $value['Age']?></td>
+                <td><?= $value['Date_de_naissance']?></td>
                 <td>
                     <a href="edit.php?id=<?php echo $value['id'] ?>">Edit</a>
                     <a href="delete.php?id=<?php echo $value['id'] ?>">delete</a>

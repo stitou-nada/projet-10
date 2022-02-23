@@ -5,7 +5,7 @@ class EmployeManager {
 
     // getEmplyoes =  pour affichage dans index.php
     public function getEmployes($connectData){
-        $getData = 'SELECT id,Prenom,Nom,Age FROM persone';
+        $getData = 'SELECT id,Prenom,Nom,Date_de_naissance FROM personnes';
         $resulta = mysqli_query($connectData,$getData);
         $data = mysqli_fetch_all($resulta,MYSQLI_ASSOC);
         return $data ; 
@@ -15,10 +15,10 @@ class EmployeManager {
     public function insertEmploye($connectData,$employe){
         $Prenom = $employe->getFirstName();
         $Nom = $employe->getLastName();
-        $Age = $employe->getAge();
+        $Date_de_naissance = $employe->getDate_de_naissance();
 
-        $insertData = "INSERT INTO persone(Prenom,Nom,Age)
-        VALUE ('$Prenom','$Nom','$Age')";
+        $insertData = "INSERT INTO personnes(Prenom,Nom,Date_de_naissance)
+        VALUE ('$Prenom','$Nom','$Date_de_naissance')";
         
         mysqli_query($connectData,$insertData);
     }
@@ -26,7 +26,7 @@ class EmployeManager {
     
     // SelectRowEdit = pour selection row et afficher dans input 
     public function SelectRowEdit($connectData,$id){
-        $getRow = "SELECT * FROM persone WHERE id=$id";
+        $getRow = "SELECT * FROM personnes WHERE id=$id";
         $resulta= mysqli_query($connectData, $getRow);
         //  mysqli_fetch_assoc = changer data en array
         $data = mysqli_fetch_assoc($resulta);
@@ -38,10 +38,10 @@ class EmployeManager {
     public function EditEmloye($connectData,$employe,$id){
         $Prenom = $employe->getFirstName();
         $Nom = $employe->getLastName();
-        $Age = $employe->getAge();
+        $Date_de_naissance = $employe->getDate_de_naissance();
 
-        $EditData = "UPDATE persone 
-                    SET Prenom='$Prenom',Nom='$Nom',Age='$Age'
+        $EditData = "UPDATE personnes
+                    SET Prenom='$Prenom',Nom='$Nom',Date_de_naissance='$Date_de_naissance'
                     WHERE id=$id";
 
         mysqli_query($connectData,$EditData);
@@ -51,7 +51,7 @@ class EmployeManager {
     
     // DeleteEmloye = pour supprime row 
     public function DeleteEmploye($connectData,$id){
-        $DeletRow = "DELETE FROM persone where id=$id";
+        $DeletRow = "DELETE FROM personnes where id=$id";
         mysqli_query($connectData,$DeletRow);
     }
 
