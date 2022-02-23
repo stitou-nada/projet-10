@@ -16,19 +16,6 @@ if(!empty($_POST)){
     header('Location: index.php');
 }
 ?>
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Modifier : </title>
-</head>
-<body>
->>>>>>> ff225935e9f38f8f35f6da73368583395c5e286e
 
 <body>
 
@@ -41,7 +28,4 @@ Date_de_naissance : <input type="date" value=<?php echo $afficherValue->getDate_
    
 <button type="submit">modifier</button>
 </form>
-<<<<<<< HEAD
 </body>
-=======
->>>>>>> ff225935e9f38f8f35f6da73368583395c5e286e
