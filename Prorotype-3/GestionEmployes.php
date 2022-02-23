@@ -1,15 +1,15 @@
 <?php
- include 'employe.php';
+ include 'Employe.php';
 class GestionEmployes{
 
     private $Connection = Null;
 
     private function getConnection(){
-        
+      
             $this->Connection = mysqli_connect('localhost', 'test', 'test123', 'demo');
            
-
-        
+         
+       
         
         return $this->Connection;
         
@@ -21,35 +21,35 @@ class GestionEmployes{
         $prenom = $employe->getPrenom();
         $Date_de_naissance = $employe->getDate_de_naissance();
         // requête SQL
-        $sql = "INSERT INTO personnes(Nom, Prenom,Date_de_naissance) 
+        $insertRow="INSERT INTO personnes(Nom, Prenom, Date_de_naissance) 
                                 VALUES('$nom', '$prenom', '$Date_de_naissance')";
 
-        mysqli_query($this->getConnection(), $sql);
+        mysqli_query($this->getConnection(), $insertRow);
     }
 
     
 
     public function afficher(){
-        $sql = 'SELECT id, Nom, Prenom, Date_de_naissance FROM personnes';
-        $query = mysqli_query($this->getConnection() ,$sql);
+        $SelctRow = 'SELECT id, Nom, Prenom, Date_de_naissance FROM personnes';
+        $query = mysqli_query($this->getConnection() ,$SelctRow);
         $employes_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-        $tableEmployes = array();
-        foreach ($employes_data as $employe_data) {
+        $TableData = array();
+        foreach ($employes_data as $value_Data) {
             $employe = new Employe();
-            $employe->setId($employe_data['id']);
-            $employe->setNom($employe_data['Nom']);
-            $employe->setPrenom ($employe_data['Prenom']);
-            $employe->setDate_de_naissance($employe_data['Date_de_naissance']);
-            array_push($tableEmployes, $employe);
+            $employe->setId($value_Data['id']);
+            $employe->setNom($value_Data['Nom']);
+            $employe->setPrenom ($value_Data['Prenom']);
+            $employe->setDate_de_naissance ($value_Data['Date_de_naissance']);
+            array_push($TableData, $employe);
         }
-        return $tableEmployes;
+          return $TableData;
     }
 
-
+// pour afficher dans input
     public function RechercherParId($id){
-        $sql = "SELECT * FROM personnes WHERE id= $id";
-        $result = mysqli_query($this->getConnection(), $sql);
+        $SelectRowId = "SELECT * FROM personnes WHERE id= $id";
+        $result = mysqli_query($this->getConnection(),  $SelectRowId);
         // Récupère une ligne de résultat sous forme de tableau associatif
         $employe_data = mysqli_fetch_assoc($result);
         $employe = new Employe();
@@ -62,22 +62,18 @@ class GestionEmployes{
     }
 
     public function Supprimer($id){
-        $sql = "DELETE FROM personnes WHERE id= '$id'";
-        mysqli_query($this->getConnection(), $sql);
+        $RowDelet = "DELETE FROM personnes WHERE id= '$id'";
+        mysqli_query($this->getConnection(), $RowDelet);
     }
 
-    public function Modifier($id,$nom,$prenom,$Date_de_naissance)
-    {
+    public function Modifier($id,$nom,$prenom,$date_de_naissance){
         // Requête SQL
-        $sql = "UPDATE personnes SET 
-        Nom='$nom', Prenom='$prenom', Date_de_naissance='$Date_de_naissance'
-        WHERE id= $id";
+        $RowUpdate = "UPDATE personnes SET 
+        Nom='$nom', Prenom='$prenom', Date_de_naissance='$date_de_naissance'
+        WHERE id=$id";
 
-        //  
-        mysqli_query($this->getConnection(), $sql);
+        mysqli_query($this->getConnection(),$RowUpdate);
 
-        //
-       
     }
 
 }
