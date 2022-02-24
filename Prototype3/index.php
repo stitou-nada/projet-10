@@ -32,7 +32,7 @@
             <tr>
                 <td><?= $value->getNom() ?></td>
                 <td><?= $value->getPrenom() ?></td>
-                <td><?= $value->getDate_de_naissance() ?></td>
+                <td><?= $value->getdate_de_naissance() ?></td>
                 <td>
                     <a href="editer.php?id=<?php echo $value->getId() ?>">Éditer</a>
                     <a href="suprimmer.php?id=<?php echo $value->getId() ?>">Supprime</a>

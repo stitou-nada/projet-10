@@ -9,7 +9,7 @@ if(!empty($_POST)){
 	$employe = new Employe();
 	$employe->setPrenom($_POST['Prenom']);
 	$employe->setNom($_POST['Nom']);
-	$employe->setDate_de_naissance($_POST['Date_de_naissance']);
+	$employe->setdate_de_naissance($_POST['Date_de_naissance']);
 	$gestionEmployes->Ajouter($employe);
 	
 	// Redirection vers la page index.php

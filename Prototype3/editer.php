@@ -24,7 +24,7 @@ if(!empty($_POST)){
 id :<input type="number" value=<?php echo $afficherValue->getId()?>  name="id" >                                                             
 Prenom : <input type="text" value=<?php echo $afficherValue->getPrenom()?> name="prenom" >
 Nom: <input type="text" value=<?php echo $afficherValue->getNom()?>  name="nom" >
-Date_de_naissance : <input type="date" value=<?php echo $afficherValue->getDate_de_naissance()?>  name="Date_de_naissance" >
+Date_de_naissance : <input type="date" value=<?php echo $afficherValue->getdate_de_naissance()?>  name="Date_de_naissance" >
    
 <button type="submit">modifier</button>
 </form>

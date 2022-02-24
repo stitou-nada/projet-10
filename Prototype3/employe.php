@@ -28,10 +28,10 @@ class Employe{
         $this->Prenom = $prenom;
     }
 
-    public function getDate_de_naissance() {
+    public function getdate_de_naissance() {
         return $this->Date_de_naissance;
     }
-    public function setDate_de_naissance($Date_de_naissance) {
+    public function setdate_de_naissance($Date_de_naissance) {
         $this->Date_de_naissance = $Date_de_naissance;
     }
 

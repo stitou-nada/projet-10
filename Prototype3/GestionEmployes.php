@@ -19,9 +19,9 @@ class GestionEmployes{
 
         $nom = $employe->getNom();
         $prenom = $employe->getPrenom();
-        $Date_de_naissance = $employe->getDate_de_naissance();
+        $Date_de_naissance = $employe->getdate_de_naissance();
         // requête SQL
-        $insertRow="INSERT INTO personnes(Nom, Prenom, Date_de_naissance) 
+        $insertRow="INSERT INTO personnes(Nom, Prenom,Date_de_naissance) 
                                 VALUES('$nom', '$prenom', '$Date_de_naissance')";
 
         mysqli_query($this->getConnection(), $insertRow);
@@ -30,7 +30,7 @@ class GestionEmployes{
     
 
     public function afficher(){
-        $SelctRow = 'SELECT id, Nom, Prenom, Date_de_naissance FROM personnes';
+        $SelctRow = 'SELECT id, Nom, Prenom,Date_de_naissance FROM personnes';
         $query = mysqli_query($this->getConnection() ,$SelctRow);
         $employes_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -40,7 +40,7 @@ class GestionEmployes{
             $employe->setId($value_Data['id']);
             $employe->setNom($value_Data['Nom']);
             $employe->setPrenom ($value_Data['Prenom']);
-            $employe->setDate_de_naissance ($value_Data['Date_de_naissance']);
+            $employe->setdate_de_naissance ($value_Data['Date_de_naissance']);
             array_push($TableData, $employe);
         }
           return $TableData;
@@ -56,7 +56,7 @@ class GestionEmployes{
         $employe->setId($employe_data['id']);
         $employe->setNom($employe_data['Nom']);
         $employe->setPrenom ($employe_data['Prenom']);
-        $employe->setDate_de_naissance ($employe_data['Date_de_naissance']);
+        $employe->setdate_de_naissance ($employe_data['Date_de_naissance']);
         
         return $employe;
     }
