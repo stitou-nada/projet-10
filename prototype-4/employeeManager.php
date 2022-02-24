@@ -25,7 +25,7 @@
 
         public function insertEmployee($employee){
 
-            $employee->setId(uniqid(false));
+            $employee->setId(uniqid());
 
 
             $file = file_get_contents('employees.json');

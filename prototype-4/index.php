@@ -29,16 +29,16 @@
             </tr>
 
             <?php
-                    foreach($data as $employee){
+                    foreach($data as $value){
             ?>
 
             <tr>
-                <td><?= $employee->getFirstName()?></td>
-                <td><?= $employee->getLastName()?></td>
-                <td><?= $employee->getAge()?></td>
+                <td><?= $value->getFirstName()?></td>
+                <td><?= $value->getLastName()?></td>
+                <td><?= $value->getAge()?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
-                    <a href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
+                    <a href="edit.php?id=<?php echo $value->getId() ?>">Edit</a>
+                    <a href="delete.php?id=<?php echo $value->getId() ?>">delete</a>
                 </td>
             </tr>
             <?php }?>
