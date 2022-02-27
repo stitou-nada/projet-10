@@ -1,19 +1,25 @@
+
+
+
 <?php
-include 'GestionEmployes.php';
-if (!empty($_POST)){
-$Nom = $_POST['nom'];
-$password = $_POST['password'];
+ include "gestionEmployes.php";
+ if(!empty($_POST)){
 
-    $gestion = new GestionEmployes(); 
 
-   if($data= $gestion->Login( $password,$Nom)){
+     $Utilisateur= new Employe;
+     $gestion = new GestionEmployes();
+     $Utilisateur->setmatricule($_POST['Matricule']);
+     $Utilisateur->setNom($_POST['Nom']);
+     $Utilisateur->setPrenom($_POST['Prenom']);
+     $Utilisateur->setpassword($_POST['password']);
+     
 
-    header("Location: table.php");
-}
-}
-else{
-    $message ;
-}
+
+
+     $gestion->ajouterUtilisateur($Utilisateur);
+        header("Location: index.php");
+     }
+ 
 
 
 ?>
@@ -50,6 +56,7 @@ else{
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
+    
     <link href="css/costumer.css" rel="stylesheet" media="all">
     <link href="css/theme.css" rel="stylesheet" media="all">
 
@@ -63,32 +70,37 @@ else{
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/PME-logo.png" class="imgLogin" alt="CoolAdmin">
+                                <img src="images/PME-logo.png" class="imgLogin" style="width: 200px;" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label>Nom de utilisateur </label>
-                                    <input class="au-input au-input--full" type="text" name="nom" placeholder="Nom">
-                                </div>
-                                <div class="form-group">
+                                    <label>Nom </label>
+                                    <input class="au-input au-input--full" type="text" name="Nom" placeholder="Nom">
+                               
+                                    <label>Prenom </label>
+                                    <input class="au-input au-input--full" type="text" name="Prenom" placeholder="Prenom">
+                                
+                                    <label>Matricule </label>
+                                    <input class="au-input au-input--full" type="number" name="Matricule" placeholder="Matricule">
+                               
+                                
                                     <label>Mot de passe</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Mot de passe">
-                                </div>
-                                <p class="text-right" > <a  href="SignUp.php"> inscrivez-vous</a> </p>  
                                 
-                                <p class="text-left" style="color: red; font-size:14px; ;"  >
-                                    <?php if(isset($_POST['nom'])){
-                                        echo $message = "Mauvais Nom ou mot de passe , réessayez"; 
-                                      } ?></p>
-                                    <button type="submit" class="btn btn-success au-btn--block " > Connexion </button>
+
                                     
+                                    <button type="submit" class="btn btn-success au-btn--block " > inscrivez-vous</button>
+                                    <p class="text-right" style="margin-top: 12px;"><a href="index.php">Retourner</a></p>
+
+                                   
                                 </div>
                             </form>
-                            
                             </div>
+                         </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
