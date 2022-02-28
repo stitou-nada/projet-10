@@ -111,6 +111,10 @@ class GestionEmployes{
      $employe->setPrenom ($value_Data['Prenom']);
      $employe->setNom($value_Data['Nom']);
      $employe->setdepartement ($value_Data['Departement']);
+     $employe->setdate_de_naissance ($value_Data['Date_de_naissance']);
+     $employe->setsalaire ($value_Data['Salaire']);
+     $employe->setfonction($value_Data['Fonction']);
+     $employe->setphoto($value_Data['Photo']);
      array_push($TableData, $employe);
  }
    
