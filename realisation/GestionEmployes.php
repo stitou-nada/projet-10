@@ -60,7 +60,7 @@ class GestionEmployes{
 // pour afficher dans input
     public function RechercherParId($id){
         $SelectRowId = "SELECT * FROM personnes WHERE id= $id";
-        $result = mysqli_query($this->getConnection(),  $SelectRowId);
+        $result = mysqli_query($this->getConnection(),$SelectRowId);
         // Récupère une ligne de résultat sous forme de tableau associatif
         $employe_data = mysqli_fetch_assoc($result);
         $employe = new Employe();
